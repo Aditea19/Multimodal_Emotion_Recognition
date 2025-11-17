@@ -1,0 +1,35 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Multimodal Emotion Recognition</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap neon-border">
+    <h1>Multimodal Emotion Recognition</h1>
+
+    <form method="post" action="{{ url_for('predict') }}" enctype="multipart/form-data">
+      <div class="row">
+        <label>Upload image (optional)</label>
+        <input type="file" name="image" accept="image/*">
+      </div>
+
+      <div class="row">
+        <label>Upload audio (.wav) (optional)</label>
+        <input type="file" name="audio" accept="audio/wav">
+      </div>
+
+      <div class="row">
+        <button type="submit" class="btn">Predict</button>
+      </div>
+    </form>
+
+    <p class="note">Upload image and/or audio.</p>
+    <footer class="site-footer">✨ Made by Aditi Arya ✨</footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Virtual environments
+venv/
+venv_tf/
+__pycache__/
+*.pyc
+
+# Model files (large!)
+models/
+*.h5
+*.pb
+*.tflite
+*.savedmodel
+
+# Temporary upload/processing folders
+uploads/
+webcam_temp/
+results_*/
+*.wav
+*.webm
+*.jpg
+*.png
+
+# OS + IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs
+*.log

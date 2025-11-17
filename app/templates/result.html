@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap neon-border">
+    <h1>Prediction Result</h1>
+
+    {% if result.image %}
+      {% if result.image.error %}
+        <div class="card error"><h3>Image error</h3><pre>{{ result.image.error }}</pre></div>
+      {% else %}
+        <div class="card"><h3>Image</h3>
+          <p><strong>Label:</strong> {{ result.image.label.capitalize() }}</p>
+          <p><strong>Confidence:</strong> {{ '%.2f'|format(result.image.confidence * 100) }}%</p>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if result.audio %}
+      {% if result.audio.error %}
+        <div class="card error"><h3>Audio error</h3><pre>{{ result.audio.error }}</pre></div>
+      {% else %}
+        <div class="card"><h3>Audio</h3>
+          <p><strong>Label:</strong> {{ result.audio.label.capitalize() }}</p>
+          <p><strong>Confidence:</strong> {{ '%.2f'|format(result.audio.confidence * 100) }}%</p>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if result.fusion %}
+      <div class="card fusion">
+        <h3>Fusion</h3>
+        <p><strong>Label:</strong> {{ result.fusion.label.capitalize() }}</p>
+        <p><strong>Confidence:</strong> {{ '%.2f'|format(result.fusion.confidence * 100) }}%</p>
+      </div>
+    {% endif %}
+
+    <div class="row"><a href="{{ url_for('index') }}" class="btn">Back</a></div>
+    <footer class="site-footer">✨ Made by Aditi Arya ✨</footer>
+  </div>
+</body>
+</html>
+
+
