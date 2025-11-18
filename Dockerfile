@@ -7,8 +7,8 @@ WORKDIR /code
 # Copy requirements early for caching
 COPY requirements.txt /code/
 
-# Install TensorFlow 2.19 here
-RUN pip install --no-cache-dir tensorflow-cpu==2.19.0
+# Install TensorFlow 2.20.0 manually
+RUN pip install --no-cache-dir tensorflow-cpu==2.20.0
 
 # Install remaining dependencies
 RUN pip install --no-cache-dir -r requirements.txt
