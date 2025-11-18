@@ -5,7 +5,7 @@ __pycache__/
 *.pyc
 
 # Model files (large!)
-models/
+#models/
 *.h5
 *.pb
 *.tflite
