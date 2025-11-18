@@ -13,17 +13,17 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CLASS_NAMES = ["angry", "disgust", "fear", "happy", "neutral", "sad"]
 
 
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-IMAGE_MODEL_PATH = os.path.join(ROOT_DIR, "models", "best_image_model.h5")
-AUDIO_MODEL_PATH = os.path.join(ROOT_DIR, "models", "audio_model.h5")
+IMAGE_MODEL_PATH = "models/best_image_model.h5"
+AUDIO_MODEL_PATH = "models/audio_model.h5"
+YAMNET_PATH = "models/yamnet"
 
 
 image_model = tf.keras.models.load_model(IMAGE_MODEL_PATH)
 audio_model = tf.keras.models.load_model(AUDIO_MODEL_PATH)
 
 
-yamnet_path = os.path.join(BASE_DIR, "../models/yamnet")
-yamnet_model = tf.saved_model.load(yamnet_path)
+YAMNET_PATH = "models/yamnet"
+yamnet_model = tf.saved_model.load(YAMNET_PATH)
 
 
 def preprocess_image(path, size=(128, 128)):
